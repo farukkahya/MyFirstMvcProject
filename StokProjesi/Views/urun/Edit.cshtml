@@ -1,0 +1,38 @@
+﻿@model StokProjesi.Models.Entity.URUNTABLO
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 class="text-center">Ürün Güncelleme</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.urunID)
+    <div>
+        @Html.LabelFor(x => x.uurnAd)
+        @Html.TextBoxFor(x => x.uurnAd, new { @class = "form-control", required = "", maxlength = "50" })
+
+        @Html.LabelFor(x => x.urunMarka)
+        @Html.TextBoxFor(x => x.urunMarka, new { @class = "form-control", required = "", maxlength = "50" })
+
+        @Html.LabelFor(x => x.urunKategori)
+        @Html.DropDownListFor(x => x.KATEGORITABLO.kategoriID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+
+        @Html.LabelFor(x => x.urunFiyat)
+        @Html.TextBoxFor(x => x.urunFiyat, new { @class = "form-control", required = "", maxlength = "50" })
+
+        @Html.LabelFor(x => x.urunStok)
+        @Html.TextBoxFor(x => x.urunStok, new { @class = "form-control", required = "", maxlength = "50" })
+    </div>
+    <div style="margin-top:8px">
+        <button type="submit" id="btnEdit" class="btn btn-sm btn-info">Güncelle</button>
+        <b> | </b>
+        <a href="@Url.Action("Index")" class="btn btn-sm btn-danger">İptal et</a>
+    </div>
+}
+<script>
+    $('#btnEdit').click(function () {
+        alert('@Model.uurnAd İsimli Ürün Bilgileri Güncellendi.')
+    })
+</script>

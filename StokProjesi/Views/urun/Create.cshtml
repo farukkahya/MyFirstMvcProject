@@ -1,0 +1,42 @@
+﻿@model StokProjesi.Models.Entity.URUNTABLO
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 class="text-center">Yeni Ürün Ekle</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.urunID)
+    <div>
+        <label>Ürün Adı</label>
+        @Html.TextBoxFor(m => m.uurnAd, new { @class = "form-control", required = "", maxlength = "50" })
+    </div>
+    <div>
+        <label>Ürün Markası</label>
+        @Html.TextBoxFor(m => m.urunMarka, new { @class = "form-control", required = "", maxlength = "50" })
+    </div>
+    <div>
+        <label>Ürün Kategori</label>
+        @*@Html.TextBoxFor(m => m.urunKategori, new { @class = "form-control" })*@
+        @Html.DropDownListFor(m => m.KATEGORITABLO.kategoriID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Ürün Fiyatı</label>
+        @Html.TextBoxFor(m => m.urunFiyat, new { @class = "form-control", required = "" })
+    </div>
+    <div>
+        <label>Ürün Stok Adedi</label>
+        @Html.TextBoxFor(m => m.urunStok, new { @class = "form-control", required = "" })
+    </div>
+    <div style="margin-top:7px">
+        <button type="submit" id="btnCreate" class="btn btn-info">Ürünü Ekle</button><b> | </b>
+        <a href="@Url.Action("Index")" class="btn btn-sm btn-danger">İptal et</a>
+    </div>
+}
+<script>
+    $('#btnCreate').click(function () {
+        alert('Ürün Eklendi.')
+    })
+</script>

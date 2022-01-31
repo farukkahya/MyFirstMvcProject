@@ -1,0 +1,22 @@
+﻿@model StokProjesi.Models.Entity.URUNTABLO
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 class="text-center">Bu Ürünü Silmek İstiyor Musunuz ?</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(z => z.urunID)
+    <label>@Model.uurnAd ürününü silmek istiyor musunuz ?</label>
+    <br />
+    <button type="submit" id="btnDelete" class="btn btn-sm btn-danger">Sil</button>
+    <b> | </b>
+    <a href="@Url.Action("Index")" class="btn btn-sm btn-primary">İptal et</a>
+}
+<script>
+    $('#btnDelete').click(function () {
+        alert('@Model.uurnAd İsimli Ürün Silindi.')
+    })
+</script>

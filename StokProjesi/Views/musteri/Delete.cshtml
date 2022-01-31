@@ -1,0 +1,24 @@
+﻿@model StokProjesi.Models.Entity.MUSTERITABLO
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Bu Müşteriyi Silmek İstiyor Musunuz ?</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.musteriID)
+    <div>
+        <label>@Model.musteriAd @Model.musteriSoyad isimli müşterinin kaydını silmek istiyor musunuz ?</label>
+    </div>
+    <div style="margin-top:8px">
+        <button type="submit" id="btnDelete" class="btn btn-sm btn-danger"> Sil</button><b> | </b>
+        <a href="@Url.Action("Index")" class="btn btn-sm btn-primary">İptal et</a>
+    </div>
+}
+<script>
+    $('#btnDelete').click(function () {
+        alert('@Model.musteriAd @Model.musteriSoyad İsimli Müşteri Silindi')
+    })
+</script>

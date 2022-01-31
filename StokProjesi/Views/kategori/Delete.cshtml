@@ -1,0 +1,20 @@
+﻿@model StokProjesi.Models.Entity.KATEGORITABLO
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 class="text-center">Bu Kategoriyi Silmek İstiyor Musunuz ?</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.kategoriID)
+        <label>Kategori Adı: @Model.kategoriAd</label> <br />
+        <button type="submit" id="btnDelete" class="btn btn-sm btn-danger">Sil</button><b> | </b>
+        <a href="@Url.Action("Index")" class="btn btn-sm btn-primary">İptel et</a>
+}
+<script>
+    $('#btnDelete').click(function () {
+        alert('@Model.kategoriAd Kategorisi Silindi.')
+    })
+</script>

@@ -1,0 +1,28 @@
+﻿@model StokProjesi.Models.Entity.MUSTERITABLO
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 class="text-center">Müşteri Bilgilerini Düzenleme</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.musteriID)
+    <div class="form-group">
+        @Html.LabelFor(x => x.musteriAd)
+        @Html.TextBoxFor(x => x.musteriAd, new { @class = "form-control" })
+        @Html.LabelFor(x => x.musteriSoyad)
+        @Html.TextBoxFor(x => x.musteriSoyad, new { @class = "form-control" })
+    </div>
+    <div style="margin-top:8px">
+        <button type="submit" id="btnEdit" class="btn btn-sm btn-info">Düzenle</button>
+        <b> | </b>
+        <a href="@Url.Action("Index")" class="btn btn-sm btn-danger">İptal et</a>
+    </div>
+}
+<script>
+    $('#btnEdit').click(function () {
+        alert('@Model.musteriAd @Model.musteriSoyad İsimli Müşterinin Bilgileri Düznlendi.');
+    });
+</script>

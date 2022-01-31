@@ -1,0 +1,27 @@
+﻿@model StokProjesi.Models.Entity.KATEGORITABLO
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 class="text-center">Kategori Düzenleme</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.kategoriID)
+    <div class="form-group">
+        @Html.LabelFor(x => x.kategoriAd)
+        @Html.TextBoxFor(x => x.kategoriAd, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.kategoriAd, null, new {@style="color:red"})
+    </div>
+    <div style="margin-top:8px">
+        <button type="submit" id="btnEdit" class="btn btn-sm btn-info">Düzenle</button>
+        <b> | </b>
+        <a href="@Url.Action("Index")" class="btn btn-sm btn-danger">İptal et</a>
+    </div>
+}
+<script>
+    $('#btnEdit').click(function () {
+        alert('@Model.kategoriAd Kategorisi Düzenlendi.')
+    })
+</script>

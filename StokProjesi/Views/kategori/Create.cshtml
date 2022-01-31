@@ -1,0 +1,25 @@
+﻿@model StokProjesi.Models.Entity.KATEGORITABLO
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 class="text-center">Yeni Kategori Ekle</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label>Yeni Kategori Adı</label>
+        @Html.TextBoxFor(m => m.kategoriAd, new {@class="form-control"})
+        @Html.ValidationMessageFor(m => m.kategoriAd, null, new {@style="color:red"})
+    </div>
+    <div style="margin-top:7px">
+        <button type="submit" id="btnCreate" class="btn btn-sm btn-info">Kategoriyi Ekle</button><b> | </b>
+        <a href="@Url.Action("Index")" class="btn btn-sm btn-danger">İptal et</a>
+    </div>
+}
+<script>
+    $('#btnCreate').click(function () {
+        alert('Kategori Eklendi.');
+    });
+</script>

@@ -1,0 +1,30 @@
+﻿@model StokProjesi.Models.Entity.MUSTERITABLO
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2 class="text-center">Yeni Müşteri Ekle</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label>Müşteri Adı</label>
+        @Html.TextBoxFor(m => m.musteriAd, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.musteriAd, null, new { @style = "color:red" })
+    </div>
+    <div>
+        <label style="margin-top:7px">Müşteri Soyadı</label>
+        @Html.TextBoxFor(m => m.musteriSoyad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.musteriSoyad, null, new { @style = "color:red" })
+    </div>
+    <div style="margin-top:7px">
+        <button class="btn btn-sm btn-info" id="btnCreate" type="submit">Müşteriyi Ekle</button><b> | </b>
+        <a href="@Url.Action("Index")" class="btn btn-sm btn-danger">İptal et</a>
+    </div>
+}
+<script>
+    $('#btnCreate').click(function () {
+        alert('Müşteri eklendi');
+    });
+</script>
